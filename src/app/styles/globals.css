@@ -1,0 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Chakra+Petch&family=Press+Start+2P&family=Righteous&family=Sriracha&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Chakra Petch";
+  font-size: 25px;
+}
+
+/* font-family: 'Bebas Neue', sans-serif;
+font-family: 'Chakra Petch', sans-serif;
+font-family: 'Press Start 2P', cursive;
+font-family: 'Righteous', cursive;
+font-family: 'Sriracha', cursive; */
