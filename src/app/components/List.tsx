@@ -1,18 +1,39 @@
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 
 export default function List() {
-  const [creator, setCreator] = useState("");
-  const [listName, setListName] = useState("");
-  const listUrl = "/lists/" + creator;
+  const [data, setData] = useState({});
+  const router = useRouter();
+  console.log(data);
+
+  const handleSubmit = (e: any) => {
+    e.preventDefault();
+    const res = fetch("/api/form", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+  };
+
+  const handleChange = (e: any) => {
+    const name = e.target.name;
+    setData((prevData) => ({
+      ...prevData,
+      [name]: e.target.value,
+    }));
+  };
+
   return (
-    <form action={listUrl} className="list-form">
-      <label htmlFor="list-name">List name:</label>
+    <form className="list-form" onSubmit={handleSubmit}>
+      <label htmlFor="listName">List name:</label>
       <input
         type="text"
-        id="list-name"
+        id="listName"
+        name="listName"
         required
-        value={listName}
-        onChange={(e) => setListName(e.target.value)}
+        onChange={handleChange}
       />
       <label htmlFor="creator">Created by:</label>
       <input
@@ -20,12 +41,9 @@ export default function List() {
         id="creator"
         name="creator"
         required
-        value={creator}
-        onChange={(e) => setCreator(e.target.value)}
+        onChange={handleChange}
       />
-      <button type="submit" id="create-button">
-        Create
-      </button>
+      <button type="submit">Create</button>
     </form>
   );
 }

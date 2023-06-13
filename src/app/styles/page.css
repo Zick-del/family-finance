@@ -14,16 +14,27 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  transition: transform 0.6s ease-in-out;
+  transition: transform 0.4s ease-in-out;
   margin: 10px;
+  height: 6em;
 }
 .icon {
   cursor: pointer;
-  transition: all 0.8s ease-in-out;
+  transition: transform 0.4s ease-in-out;
+  border: 2px solid transparent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .active {
-  transform: translateY(-290px);
+  transform: translateY(calc(-100vh / 2 + 4em));
 }
 .icon-active {
   transform: rotate(360deg);
+  border: 2px solid #52243e;
+  border-radius: 20px;
+}
+.icon:hover {
+  border: 2px solid #52243e;
+  border-radius: 20px;
 }
